@@ -1,0 +1,6 @@
+# GitHub Pages configuration
+# This file configures GitHub Pages to use GitHub Actions for deployment
+# instead of the legacy Jekyll build process
+
+# Disable Jekyll processing
+jekyll: false

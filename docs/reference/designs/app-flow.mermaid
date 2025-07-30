@@ -1,0 +1,67 @@
+sequenceDiagram
+    participant U as User
+    participant A as App
+    participant LS as Local Storage
+    participant C as Camera
+    participant E as Export System
+
+    Note over U,E: App Launch & Assessment Start
+    U->>A: Launch App
+    A->>LS: Check for existing assessments
+    LS-->>A: Return assessment list
+    A-->>U: Show home screen
+
+    U->>A: Start New Assessment
+    A-->>U: Show VIN entry screen
+
+    Note over U,E: Vehicle Identification
+    alt VIN Scanning
+        U->>A: Choose scan VIN
+        A->>C: Open camera
+        U->>C: Scan VIN barcode
+        C-->>A: Return VIN data
+        A->>A: Validate VIN
+    else Manual Entry
+        U->>A: Choose manual entry
+        U->>A: Type VIN
+        A->>A: Validate VIN format
+    end
+
+    A->>LS: Create vehicle record
+    A->>LS: Create assessment record
+    A-->>U: Show vehicle details
+
+    Note over U,E: Photo Capture Workflow
+    loop For each of 9 positions
+        A-->>U: Show position guide
+        U->>A: Take photo
+        A->>C: Open camera
+        U->>C: Capture photo
+        C-->>A: Return photo
+        A-->>U: Show preview
+
+        alt Keep photo
+            U->>A: Confirm photo
+            A->>LS: Save photo with metadata
+            A-->>U: Show annotation screen
+            U->>A: Add damage notes (optional)
+            A->>LS: Save annotations
+        else Retake
+            U->>A: Retake photo
+            A->>C: Reopen camera
+        end
+    end
+
+    Note over U,E: Assessment Completion
+    U->>A: Complete assessment
+    A->>LS: Update assessment status
+    A-->>U: Show summary screen
+
+    U->>A: Export assessment
+    A->>E: Generate zip file
+    E->>LS: Gather photos & annotations
+    LS-->>E: Return data
+    E->>E: Create zip with naming convention
+    E-->>A: Return zip file path
+    A-->>U: Show share options
+    U->>A: Share via preferred method
