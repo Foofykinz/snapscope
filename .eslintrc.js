@@ -32,6 +32,11 @@ module.exports = {
     'import/resolver': {
       typescript: {
         project: ['./tsconfig.json', './packages/*/tsconfig.json'],
+        alwaysTryTypes: true,
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        moduleDirectory: ['node_modules', './packages/*/node_modules'],
       },
     },
   },
@@ -47,6 +52,16 @@ module.exports = {
     ],
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
@@ -70,6 +85,34 @@ module.exports = {
       files: ['**/*.test.ts', '**/*.test.tsx'],
       env: {
         jest: true,
+      },
+    },
+    {
+      files: ['packages/mobile/src/**/*.{ts,tsx}'],
+      rules: {
+        'import/extensions': [
+          'error',
+          'always',
+          {
+            js: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never',
+            json: 'never',
+          },
+        ],
+      },
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: ['./packages/mobile/tsconfig.json'],
+            alwaysTryTypes: true,
+          },
+          node: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            paths: ['./packages/mobile/src'],
+          },
+        },
       },
     },
   ],

@@ -71,7 +71,7 @@ SnapScope provides:
 ### Prerequisites
 
 ```bash
-# Install Node.js 18+ and npm
+# Install Node.js 18+ and pnpm
 # Install React Native development environment
 # iOS: Xcode 14+
 # Android: Android Studio with SDK 31+
@@ -85,13 +85,10 @@ git clone https://github.com/yourusername/snapscope.git
 cd snapscope
 
 # Install dependencies
-npm install
-
-# iOS setup
-cd ios && pod install && cd ..
+pnpm install
 
 # Start development
-npm start
+pnpm dev
 ```
 
 ## 📋 Development Roadmap
