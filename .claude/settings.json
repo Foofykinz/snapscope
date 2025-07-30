@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm:*)",
+      "Bash(mkdir:*)",
+      "Bash(gh milestone:*)",
+      "Bash(gh api:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh label list:*)",
+      "Bash(gh label create:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": []
+  }
+}

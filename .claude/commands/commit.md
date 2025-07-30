@@ -31,6 +31,9 @@ git add .
 - If there are staged changes, only commit those.
 - If there are no changes, do not create a commit. Say "No changes to commit."
 - If there was an issue with GPG signing, immediately try to commit without GPG signing.
+- immediately git push. If a force push is required, use `git push --force-with-lease` to avoid overwriting others' work.
+- If there is a PR open for the current branch, after pushing the commit, update the PR accordingly.
+  - If the commit fixes an issue, make sure to link the issue in the PR description.
 
 ## Begin task
 

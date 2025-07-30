@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "SnapScope",
+    "slug": "snapscope",
+    "version": "1.0.0",
+    "owner": "snapscope-team",
+    "orientation": "portrait",
+    "scheme": "snapscope",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.snapscope.mobile",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "SnapScope needs access to your camera to capture vehicle photos.",
+        "NSLocationWhenInUseUsageDescription": "SnapScope needs access to your location to add GPS data to photos.",
+        "NSPhotoLibraryAddUsageDescription": "SnapScope needs access to save photos to your photo library.",
+        "NSPhotoLibraryUsageDescription": "SnapScope needs access to your photo library to export photos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.snapscope.mobile",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-camera",
+      "expo-location",
+      "expo-media-library",
+      "expo-file-system"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
