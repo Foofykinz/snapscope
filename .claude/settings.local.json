@@ -1,13 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)",
-      "Bash(gh milestone create:*)",
-      "Bash(gh api:*)",
-      "Bash(gh issue create:*)",
-      "Bash(gh repo view:*)",
-      "Bash(gh issue edit:*)",
-      "Bash(gh issue list:*)"
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm clean:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

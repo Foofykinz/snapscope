@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+.expo/
+coverage/
+*.min.js
+*.min.css
+*.bundle.js
+pnpm-lock.yaml
+*.log
+.git/
